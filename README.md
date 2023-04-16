@@ -4,12 +4,17 @@
 - Java 17 (I used this mostly out of convenience on my local Macbook)
 - Docker (optional if you have Java 17)
 
-To download the dependencies, build, the project, and start it. In your shell you can do:
+### 1. Clone the repo
+```shell
+gh repo clone djvex/receipt-api
+```
+
+### To download the dependencies, build, the project, and start it. In your shell you can do:
 ```shell
 ./mvnw spring-boot:run
 ```
 
-If you have docker, you can build and run the image afterward with:
+### If you have docker, you can build and run the image afterward with:
 ```shell
 docker build --tag receipt-api .
 docker run receipt-api
