@@ -1,19 +1,25 @@
 package com.heb.receiptapi;
 
-import java.util.concurrent.atomic.AtomicLong;
-
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 public class ReceiptController {
+    private final ReceiptService  receiptService;
 
-    private static final String template = "Hello, %s!";
-    private final AtomicLong counter = new AtomicLong();
+    public ReceiptController(ReceiptService receiptService) {
+        this.receiptService = receiptService;
+    }
 
     @GetMapping("/receipt")
     public String getReceipt() {
         return "hello";
+    }
+
+    @PostMapping("/receipt")
+    public ResponseEntity<Receipt> createReceipt(@RequestBody Cart cart) {
+        Receipt receipt = receiptService.calculateReceipt(cart.getItems(), cart.getCoupons());
+        return new ResponseEntity<>(receipt, HttpStatus.OK);
     }
 }
