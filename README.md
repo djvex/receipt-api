@@ -261,6 +261,17 @@ To get a receipt make a `POST` to `http://localhost:8080/receipt` with a JSON re
 
 ```
 
+You should get a JSON response representing the receipt like so:
+```
+{
+	"grandTotal": 228.54625000000004,
+	"discountTotal": 3.63,
+	"subtotalBeforeDiscounts": 221.41000000000005,
+	"subtotalAfterDiscounts": 217.78000000000003,
+	"taxableSubtotalAfterDiscounts": 130.50000000000003,
+	"taxTotal": 10.766250000000001
+}
+```
 
 
 You can also get a receipt without any `coupons` applied by sending a `POST` and omitting the `coupons` array in the JSON body.
