@@ -15,7 +15,7 @@ docker build --tag receipt-api .
 docker run receipt-api
 ```
 
-To get a receipt make a `POST` to `http://localhost:8080/receipt` with a JSON request body representing the cart with a list of items and coupons like so.
+To get a receipt make a `POST` to `http://localhost:8080/receipt` with a JSON request body representing the `cart` with a list of `items` and `coupons` like so.
 ```shell
 {
   "items": [
@@ -258,7 +258,7 @@ To get a receipt make a `POST` to `http://localhost:8080/receipt` with a JSON re
 
 
 
-You can also get a receipt without any coupons applied by sending a `POST` without the `coupons` array in the JSON body.
+You can also get a receipt without any `coupons` applied by sending a `POST` and omitting the `coupons` array in the JSON body.
 ```shell
 curl --request POST \
   --url http://localhost:8080/receipt \
